@@ -27,6 +27,10 @@ namespace Api.Infrastructure.Persistence.Repositories
         public BookResponse CreateBook(CreateBookRequest request)
         {
             var book = this.mapper.Map<Book>(request);
+            book.Title = request.Title;
+            book.Summary = request.Summary;
+            book.Pages = request.Pages;
+            book.Price = request.Price;
             book.InStock = true;
             book.CreatedAt = book.UpdatedAt = DateUtil.GetCurrentDate();
 
@@ -72,6 +76,7 @@ namespace Api.Infrastructure.Persistence.Repositories
             {
                 book.Title = request.Title;
                 book.Summary = request.Summary;
+                book.Pages = request.Pages;
                 book.Price = request.Price;
                 book.InStock = request.InStock;
                 book.UpdatedAt = DateUtil.GetCurrentDate();
