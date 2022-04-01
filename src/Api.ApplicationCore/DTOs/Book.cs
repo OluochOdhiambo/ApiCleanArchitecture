@@ -1,18 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace Api.ApplicationCore.DTOs
 {
     public class CreateBookRequest
     {
-        //[Required]
-        //[StringLength(30, MinimumLength = 3)]
+        [Required]
+        [StringLength(30, MinimumLength = 3)]
         public string Title { get; set; } = string.Empty;
 
+        [Required]
         public int Pages { get; set; }
+
+        [Required]
         public string Summary { get; set; } = string.Empty;
+
+        [Required]
         public bool InStock { get; set; }
+
+        [Required]
+        [Range(0.01, 1000)]
         public double Price { get; set; }
     }
 
